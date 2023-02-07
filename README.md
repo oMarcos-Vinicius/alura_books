@@ -218,3 +218,42 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[06:01] Podemos fazer isso ou no nosso código main, ou lá no nosso método forEach, podemos escolher. Eu posso colocar, por exemplo, no livro.preco um . toFixed(2) só para ele fixar em duas casas decimais, isso já resolveria o problema.</p>
 
 <p>[06:25] Isso já resolveria a parte visual e eu acho que é o menos custoso para nós. Então, para arrumarmos aquela quantidade de valores periódicos da nossa dízima, eu vou fixar na exibição que ele vai estar em duas casas decimais.</p>
+
+<h1>Módulo 03 - Filter: aplicando diferentes filtros</h1>
+
+<h2>02. Filter</h2>
+
+<p>[00:00] O nosso projeto está muito legal, está incrível. Aplicamos desconto nos livros, isso ficou incrível, está muito bonito! Porém, temos alguns botões que não demos tanta ênfase até o momento, mas começaremos a trabalhar nisso agora.</p>
+
+<p>[00:13] Temos livros e determinadas categorias, como front-end, dados, livros de back-end como esse de Python. Eu quero clicar em um desses botões, "Livros de front-end", quando eu clicar, apenas os livros de front vão ser exibidos. Alteraremos esse conteúdo.</p>
+
+<p>[00:35] Cliquei em "Livros de back-end" ou em "Livros de dados", eu quero visualizar só por determinadas categorias. E para esses três botões, nós utilizaremos um método especial chamado filter. Vamos pesquisá-lo também, então vou colocar array prototype filter e vou clicar nesse primeiro link do Mozilla, para entendermos.</p>
+
+<p>[00:59] Então ele diz assim: o método filter() cria um novo array com todos os elementos que passam no testes implementado pela função fornecida. Legal, mas não entendi muito bem. Vamos tentar entender no exemplo que está em inglês? Então inglês, ele fala a mesma coisa, de uma função fornecida e ele tem um exemplo.</p>
+
+<p>[01:19] Tem algumas palavras e ele quer filtrar const words e ele tem algumas palavras. Ele quer filtrar essas palavras e armazenar essas palavras em um novo resultado, ou seja, o método filter vai gerar, para nós, um novo array, com palavras que tenham mais de seis caracteres. E ele devolve esse resultado, então vamos ver se isso é verdade.</p>
+
+<p>[01:42] Exuberante, mais de seis. Ok, tudo mais de seis. Exemplo legal, mas vamos criar um exemplo nosso, que faça sentido, para entendermos bem o que é que essa função faz.</p>
+
+<p>[01:52] Então o exemplo que eu quero criar com vocês é: eu vou criar uma lista const idades e eu quero saber idades que podem dirigir ou não. Então eu tenho [10, 22, 42, 16, 50], por exemplo. Tenho algumas idades.</p>
+
+<p>[02:21] O que eu quero fazer? Vou criar um novo array, que o método filter vai gerar um novo array, então eu vou escrever esse array: const podeDirigir = idades.filter e aqui a gente vai passar a nossa função.</p>
+
+<p>[02:42] Lembrando que se quisermos, essa função que ele fala, função callback, seria exatamente isso, uma função que não passamos o nome e passaremos aqui dentro as idades, por exemplo, a idade. E a gente abre e fecha {} aqui, algo desse tipo. Mas eu vou já passar a nossa função com base na arrowFunction.</p>
+
+<p>[03:05] Então eu vou pegar uma idade e essa idade eu vou fazer alguma coisa, que vai me retornar um valor, essa comparação vai me retornar um valor. Minha arrowFunction, faltou fechar um parênteses desse. A minha arrowFunction vai ser assim: ela vai ter um return, porque eu vou gerar uma nova lista e eu vou verificar se a idade é >= 18.</p>
+
+<p>[03:31] E embaixo eu vou dar um console.log nos dois, tanto na podeDirigir, como nas idade para vermos que ela não mudou. Vamos escrolar o mouse um pouco para baixo, quando eu executo, pode dirigir: 223 42 e 50; e todas as idades: 10, 22, 42, 16 e 50.</p>
+
+<p>[04:01] Então repara que o método filter, a principal diferença dele, para entendermos como ele funciona, é o seguinte: temos um array, com determinados valores, sejam eles idades, categorias, alguma coisa e queremos filtrar, criando um novo conjunto de elementos, uma nova array.</p>
+
+<p>[04:21] Então essa função, sempre que passamos por ela, a função vai retornar um valor booleano e esse é um ponto interessante. Repara que eu falei idade >= 18 o valor booleano, vai ser verdadeiro ou falso, true ou false.</p>
+
+<p>[04:35] Então, se o valor for verdadeiro, aí sim ele vai pegar esse valor e vai colocar nessa nossa outra array. Vou dar um zoom bem grande para vermos vem. Então, se o valor da idade for de fato maior ou igual a 18, ele vai armazenar na variável podeDirigir. Se não for, ele descarta e ele não utiliza aquela verificação, aquela idade.</p>
+
+<p>[05:00] E o que é que faremos na sequência? Exatamente verificaremos, quando clicarmos no botão de front-end, se a categoria desse livro é front-end, se a dessa é front-end, se desse é front-end. E tudo o que for front-end eu vou ter um novo array, com todos aqueles elementos daquela categoria.</p>
+
+<p>[05:19] E o mesmo para os outros, eu quero livros de back-end. Então todos os livros que são de back-end, que têm a categoria como back-end, serão utilizados lá.</p>
+
+<p>[05:28] Então temos um exemplo bem lúdico, bem ilustrativo para mostrar como escrevemos esse método filter e um exemplo mais realista, que começaremos a atacar na sequência.</p>
+
