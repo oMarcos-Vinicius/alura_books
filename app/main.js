@@ -1,7 +1,7 @@
 let livros = [];
 const endpointDaApi = 'https://guilhermeonrails.github.io/casadocodigo/livros.json';
 getBuscarLivrosDaApi();
-elementoParaInserirLivros = document.getElementById('livros');
+const elementoParaInserirLivros = document.getElementById('livros');
 
 async function getBuscarLivrosDaApi() {
     const res = await fetch(endpointDaApi);

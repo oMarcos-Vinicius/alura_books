@@ -135,7 +135,7 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[02:51] O que é que eu vou fazer? Está vendo que eu tenho div class="livro"? Esse é um livro novo. Tudo isso faz referência a esse livro "Cangaceiro JavaScript". Então a imagem, o preço do livro, quem criou. Esse é um outro livro. Então se observarmos, todos os livros terão: um nome, que é o livro__titulo; um alt; uma imagem; uma descrição, um preço e assim por diante.</p>
 
-[03:19] Então o que é que eu vou fazer? Vou dar um "Ctrl + c" dessa linha toda, vou no nosso código e vou falar: innerHTML pega os livros e insere cada livro, cada id que eu tenho, eu começo do 0 e vou até o 11, esses 12 livros, dentro desse elemento inserirLivros.
+<p>[03:19] Então o que é que eu vou fazer? Vou dar um "Ctrl + c" dessa linha toda, vou no nosso código e vou falar: innerHTML pega os livros e insere cada livro, cada id que eu tenho, eu começo do 0 e vou até o 11, esses 12 livros, dentro desse elemento inserirLivros.</p>
 
 <p>[03:37] Para isso, eu vou colocar o sinal de += template string, com a crase invertida, vou dar um "Tab" dentro e "Ctrl + v". Vou voltar no nosso código e olha o que aconteceu? Aconteceu um negócio interessante. Ele pegou e colocou 12 vezes o livro "Cangaceiro JavaScript". Vou até ocultar para vermos.</p>
 
@@ -161,3 +161,22 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[07:35] Então já fizemos a requisição e utilizamos o forEach para criar cada um desses elementos de livro. Ele criou o livro de "Vue", o livro de "Postgre", o livro de "Saas", de "HTML e CSS" e todos os livros assim por diante. Então aprendemos como fizemos a requisição e como usamos o forEach para criar cada um desses elementos na tela.</p>
 
+<h1>Módulo 02: Map novo array modificado</h1>
+
+<h2>02. Como funciona o map</h2>
+
+<p>[00:00] Nosso próximo desafio é aplicar um desconto nos valores dos preços de cada um dos livros. Para isso, utilizaremos o método map.</p>
+
+<p>[00:11] O método map() invoca a função callback passada por argumento para cada elemento do array- e aqui um ponto muito importante - e devolve um novo array como resultado.</p>
+
+<p>[00:22] Vamos testar isso, cliquei na opção "Português do Brasil", na parte superior direita da tela e vou selecionar a língua inglesa, temos a mesma tradução para o map e tem um teste que podemos visualizar.</p>
+
+<p>[00:32] Esse teste fala que ele tem um array e uma constante const array1 = [1, 4, 5, 16]. E ele vai passar para uma função map e ele cria uma nova constante const map1 = array1.map, pega cada valor, cada elemento do array e faz ele vezes dois.</p>
+
+<p>[00:54] Então, no console.log() o que é esperado é 2, 4, 18, 32, que é o dobro de cada um desses valores. Vamos rodar esse código para vermos e realmente temos isso. Só que tem um ponto importante que pode passar despercebido, que é o seguinte: esse método, assim como o método forEach, ele não altera o valor da array original, ele faz uma cópia para conseguir utilizar essas ações.</p>
+
+<p>[01:18] Ou seja, ele passa por cada elemento do nosso array, que é invocado, executa uma determinada função, o comportamento que esperamos e retorna um novo array contendo os novos valores retornados.</p>
+
+<p>[01:30] Essa função map é invocada da mesma forma que a função forEach. Só que, a função map, diferente do forEach, ela retorna um valor, geralmente. Se eu colocarmos console.log(array1), por exemplo, teremos os mesmos valores 1, 4, 9, 16 embaixo. Então o map vai alterar os valores para a nova array que utilizaremos, mas ele não altera a array principal. E diferente do forEach, teremos um retorno para essa nossa função.</p>
+
+<p>[02:17] No próximo vídeo, quero começar a botar a mão na massa no nosso projeto, para alterarmos cada um desses valores embaixo.</p>
