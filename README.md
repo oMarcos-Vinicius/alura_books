@@ -257,3 +257,72 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[05:28] Então temos um exemplo bem lúdico, bem ilustrativo para mostrar como escrevemos esse método filter e um exemplo mais realista, que começaremos a atacar na sequência.</p>
 
+<h2>04. Filter de livros</h2>
+
+<p>[00:00] Eu quero mostrar para vocês uma forma de pegar mais de um botão e atribuir nesse mesmo botão a mesma função para otimizarmos o nosso código e evitar a duplicidade de código. Então temos três botões principais, que são: "Livros de front-end", "Livros de back-end" e "Livros de dados".</p>
+
+<p>[00:17] Se formos em nosso código, observe que temos uma li para cada livro e tem um botão com uma classe. Essa classe é btn btn-back, classe btn btn-dados, btn btn-disponiveis e btn btn-ordenacao.</p>
+
+<p>[00:30] O que é que eu posso fazer? Existe uma forma de eu falar assim: olha, vá lá no documento e pegue todos os botões que eu tenho nesse meu documento. Vou mostrar isso para vocês acontecendo no console, ok?</p>
+
+<p>[00:43] Deixe-me minimizar, porque o console está gigante, nem eu estou conseguindo enxergar. Agora sim, no console. Então o que é que eu quero fazer? Vá lá no document.querySelectorAll, não apenas querySelector.</p>
+
+<p>[00:57] Se eu colocar apenas querySelector, eu vou selecionar, quando ele encontrar o primeiro elemento, ele já vai pegar. Não é isso que eu quero. Eu quero que ele pegue todos os botões da minha tela. Então eu vou falar assim: pegue lá tudo o que for .btn. Vou fechar a aspa simples e fechar o parênteses.</p>
+
+<p>[01:15] Repare que ele me devolveu uma lista. Então, quando eu dei o "Enter", ele devolveu btnFiltrarLivrosFront, btnFiltrarLivrosBack, btnFiltrarLivrosDados, btnLivrosDisponiveis e btnOrdenarPorPreco. Isso ficou incrível, é exatamente isso que eu quero.</p>
+
+<p>[01:30] Então vamos lá no nosso código e ver como que podemos utilizar essa nossa função. Aqui temos o código anterior, que funcionava para essa função que faz o filtro dos livros. Eu vou remover essa função que faz esse filtro.</p>
+
+<p>[01:43] E vou criar uma nova variável, vou chamar de const botoes. E essa const botoes vai ser do tipo document.querySelectorAll. Não é querySelector. Pessoal, não é querySelector só. É querySelectorAll.</p>
+
+<p>[02:00] De todos, não quero só o primeiro elemento que ele encontrar, eu quero todos os elementos, entre aspas, que tenham o .btn. E guarda nessa nossa variável botoes. Beleza Gui, eu tenho minha lista de botões e eu guardei toda essa lista aqui dentro. O que é que eu vou precisar fazer?</p>
+
+<p>[02:16] Eu vou precisar pegar o primeiro botão e falar: olha, quando tiver um evento de clique, você vai chamar filtrarLivros. Pegar o segundo botão e falar: olha, quando você tiver um evento de clique, você vai chamar a função filtrarLivros. O terceiro botão e assim por diante.</p>
+
+<p>[02:30] Essa questão de pega o primeiro elemento, faz alguma coisa; pega o segundo elemento, faz alguma coisa; pega o terceiro elemento, faz alguma coisa, executa uma função, isso me lembra algo que já vimos, que se chama forEach.</p>
+
+<p>[02:41] Olha que interessante, então eu vou usar uma solução que já aprendemos no curso, que é botoes.forEach. E o que é que eu quero fazer com cada botão? Então eu vou falar assim: cada botão eu quero realizar uma determinada ação. Que ação é essa?</p>
+
+<p>[02:57] A ação vai ser btn.addEventListener que vai ser o clique que vai chamar a função de filtrar livros. Olha que incrível isso, ficou muito legal. Olha só, então com duas linhas, praticamente, conseguimos resolver o problema de pegar todos os botões e colocar a função de filtrar livros.</p>
+
+<p>[03:18] Só que agora temos um novo problema. Qual que é o problema? O problema é que qualquer um dos botões vai filtrar para livros de front-end e não é isso que queremos. Olha só: vou atualizar a página e vou clicar no botão "Livros de front-end", no canto superior esquerdo da tela, vou abrir o inspetor.</p>
+
+<p>[03:34] Vamos no console e ele deu um Array de sete posições. Deixe-me minimizar só para conseguirmos ver melhor. Eu vou clicar no botão "Livros de dados", na parte superior da tela, ele me deu um Array de sete. Vou colocar outro livros, está me dando a tabela.</p>
+
+<p>[03:50] Qualquer um dos botões que eu clico, ele está me devolvendo essa mesma Array. Se eu colocar, por exemplo, dados, ele vai me devolver uma lista com dois elementos, que são dois livros que eu tenho.</p>
+
+<p>[04:00] Então eu vou clicar no botão "Livros disponíveis", na parte superior da tela, e ele vai me devolver uma lista com dois. Se eu clicar no botão "Ordenar por preço", no canto superior direito da tela, lista com dois.</p>
+
+<p>[04:07] Se eu clicar no botão "Livros de front-end", no canto superior esquerdo da tela, ele vai me dar os dois livros de dados, que é o que eu tenho na minha lista. Isso não faz muito sentido. De alguma forma, precisaremos manipular esse conteúdo. Precisaremos identificar e alterar esse conteúdo.</p>
+
+<p>[04:21] Como é que podemos fazer isso? Bom, uma das formas que temos é a seguinte: conseguimos saber exatamente qual é o botão que estamos clicando, para saber qual é o id desse nosso botão.</p>
+
+<p>[04:32] Então, observando na index, temos o id="btnFiltrarLivrosFront”, o id="btnFiltrarLvirosBack", id="btnFiltrarLivrosDados" e assim por diante, ok? Então o que é que eu poderia fazer?</p>
+
+<p>[04:42] Se eu tenho a informação de um botão específico, que eu vou pegar, deixe-me pegar os botões: botoes no índice zero, no índice um. Não, no índice zero, que é o button0btnFiltrarLivrosFront.btn.btn-front. Vou falar btn é igual a isso.</p>
+
+<p>[05:00] Então se eu digito btn, ele vai me mostrar button0btnFiltrarLivrosFront.btn.btn-front. Se eu tenho esse botão, eu consigo saber exatamente qual é o valor desse botão. Então se eu colocar um btn.value ele me devolve exatamente a informação front-end.</p>
+
+<p>[05:15] Se eu for no meu índice de botões e pegar o valor, o índice um, por exemplo, que é o livro de back-end, olha que interessante: se eu colocar botoes[1].value, olha o que ele me devolve: back-end.</p>
+
+<p>[05:36] Isso já me dá uma ideia. E se eu usar o .value para conseguir identificar exatamente qual é essa categoria que eu estou querendo encontrar?</p>
+
+<p>[05:45] Então eu vou fazer o seguinte: eu vou criar uma const, que eu vou chamar de const elementoBtn = document.getElementById exatamente do botão que estamos trabalhando. Então eu vou chamar aqui (this.Id), que vai ser para eu conseguir saber qual é o botão que eu estou clicando, ok?</p>
+
+<p>[06:14] Dessa forma eu falo assim: houve um clique, houve um evento de clique, chame essa função. Primeira coisa, primeira instrução que essa função vai fazer? Qual é o botão que está sendo clicado? Puxa, se eu sei o botão que está sendo clicado, eu consigo pegar o valor dele, a categoria dele.</p>
+
+<p>[06:28] Vou criar uma nova variável, const categoria = elementoBtn.value. E o que eu posso fazer é colocar a categoria. Falar, olha o livro filtrado vai ter que ser igual a categoria que eu estou passando. E aqui eu faço um - nossa, eu escrevi errado, deixe-me arrumar isso. Que coisa, em? - console.table.</p>
+
+<p>[06:58] Aqui eu fecho, eu não escrevi errado não, eu esqueci o parênteses, parecia que estava errado. É isso aí. Então o que é que eu fiz? Pega o id do botão que estamos, pegamos o elemento todo.</p>
+
+<p>[07:08] Peguei o elemento? Eu vou pegar o valor que está contido em cada um desses elementos, que temos "front-end", "back-end" e "dados", por exemplo e você vai buscar, vai fazer um filtro com base nessa categoria.</p>
+
+<p>[07:20] Vamos lembrar, se eu faço um filtro de uma lista vazia, eu não vou ter nenhum retorno, não vai ter nenhuma informação. Então o que é que acontece? Com esse código, se eu clicar no console, eu vou conseguir ver cada um desses livros.</p>
+
+<p>[07:32] Então olha: "Livros de front-end", apareceram os livros de front-end; "Livros de dados", apareceram só os livros de dados, olha "Post", "CRISP" e o "Pandas"; "Livros de back-end", apareceram três, "Python", o "Springboot" e o livro de "Django.</p>
+
+<p>[07:46] Então temos o comportamento que queríamos. E mesclamos duas informações: com o método forEach, para conseguir colocar a função específica de filtrar livros; e o método filter, para de fato realizarmos o filtro.</p>
+
+<p>[07:59] Se eu clico, por exemplo, no botão "Livros disponíveis", na parte superior da tela, ou no botão "Ordenar por preço", no canto superior direito da tela, nada vai acontecer. Não receberemos nenhum erro e nada acontece. Olha, "Livros disponíveis" e "Ordenar por preço", não acontece absolutamente nada.</p>
+
+<p>[08:10] Esses três estão exatamente como a queríamos. Nosso próximo desafio é mostrar esses livros que estão no console, na tela.</p>
