@@ -114,3 +114,50 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[05:23] Podemos utilizar arrowFunction ou funções callback, forEach e uma outra função call-back para utilizar essa ação em todos os elementos. O que eu quero deixar claro no coração de vocês é o seguinte: forEach, ele vai pegar cada elemento da nossa lista, do nosso array e vai executar uma determinada função que passaremos.</p>
 
 <p>[05:45] Gui, deu para entender, criei livros.forEach(livro => { console.log(livro) }. Mas como é que fazemos agora para o nosso código, para criarmos, de fato, uma função com o forEach para exibir os livros na tela? Veremos isso no próximo vídeo.</p>
+
+<h2>06. forEach de livros</h2>
+
+<p>[00:00] Vamos agora colocar os livros na tela? Primeira coisa que eu vou fazer vai ser pegar o elemento em que colocaremos os nossos livros. Então se observarmos, a seção 32, nós não comentamos essa section, deixamos ela aberta, livros está aberta, tanto que formos até o final, encontraremos section fechando. Olha, section fechando de livros.</p>
+
+<p>[00:22] O que é que eu vou fazer? Eu vou pegar esse elemento, de section de livros e vou inserir cada livro dentro dessa section. O nosso código main para conseguirmos pegar essa section que estamos utilizando. O que é que eu vou fazer? Vou criar uma constante const elementoParaInserirLivros = document.getElementById('livros'), que é o id que temos no nosso HTML.</p>
+
+<p>[00:56] Deixe-me abrir o HTML, que é esse id aqui, id="livros". Maravilha. Tenho esse id de livros nessa constante. Então agora o que precisamos fazer é de fato esse for, queremos exibir os livros na tela. Então o que é que eu vou fazer? Estamos utilizando o console.table, eu vou deixá-lo por enquanto, só para pegarmos algumas informações, mas depois eu vou tirá-lo.</p>
+
+<p>[01:16] Então, da mesma forma que fazemos um console.table(livros), eu quero exibirOsLivrosNaTela, alguma coisa desse tipo, e eu vou passar quem? Vou passar os meus livros que eu peguei da minha requisição.</p>
+
+<p>[01:31] Primeira coisa, vamos criar essa nossa função. Vai ser uma função, vai ter o nome de exibirOsLivrosNaTela, vou receber como parâmetro, vou colocar (listaDeLivros) para ficar mais claro o que eu quero fazer junto com vocês. Então vamos atacar essa função agora. O que é que eu tenho nessa função?</p>
+
+<p>[01:53] Eu recebo uma lista de livros, esses livros que eu passo aqui, dentro dessa função vai chamar listaDeLivros. Então, o que eu quero fazer é pegar essa lista de listaDeLivros e fazer um forEach dele. Eu vou abrir os parênteses e vou criar, da mesma forma que eu mostrei no exemplo anterior.</p>
+
+<p>[02:14] Eu vou pegar, para cada livro dentro dessa listaDeLivros, eu quero fazer uma determinada ação. Então => para criarmos a nossa arrowFunction, eu vou abrir e fechar chaves e a colocaremos o nosso código. O que é que temos? Temos o elemento para inserirmos os livros.</p>
+
+<p>[02:35] Então eu vou pegar ele, elementoParaInserirLivros.innerHTML, ou seja, vai no elemento section class="livros wrap" id="livros" e o conteúdo dentro dele, quando eu coloquei inner.HTML é esse conteúdo dentro dele, eu quero colocar alguma coisa.</p>
+
+<p>[02:51] O que é que eu vou fazer? Está vendo que eu tenho div class="livro"? Esse é um livro novo. Tudo isso faz referência a esse livro "Cangaceiro JavaScript". Então a imagem, o preço do livro, quem criou. Esse é um outro livro. Então se observarmos, todos os livros terão: um nome, que é o livro__titulo; um alt; uma imagem; uma descrição, um preço e assim por diante.</p>
+
+[03:19] Então o que é que eu vou fazer? Vou dar um "Ctrl + c" dessa linha toda, vou no nosso código e vou falar: innerHTML pega os livros e insere cada livro, cada id que eu tenho, eu começo do 0 e vou até o 11, esses 12 livros, dentro desse elemento inserirLivros.
+
+<p>[03:37] Para isso, eu vou colocar o sinal de += template string, com a crase invertida, vou dar um "Tab" dentro e "Ctrl + v". Vou voltar no nosso código e olha o que aconteceu? Aconteceu um negócio interessante. Ele pegou e colocou 12 vezes o livro "Cangaceiro JavaScript". Vou até ocultar para vermos.</p>
+
+<p>[03:57] Olha, tem "Cangaceiro JavaScript" quatro, oito, 12. Ele colocou 12 vezes dentro dessa tag, só que não é muito bem isso que eu quero. Eu quero as informações que estão contidas no livro que utilizamos.</p>
+
+<p>[04:10] Vamos pegar então essas informações que temos no livro. Então olha só, deixe-me abrir um pouco para o lado. Vou atualizar a página. Temos algumas informações como título, preço, autor, imagem, alt, quantidade e categoria.</p>
+
+<p>[04:30] Então vamos começar a alterar essas informações. Primeiro temos src da imagem do livro. Como que chama no nosso json? Chama imagem. E para eu pegar a imagem do livro específico que eu estou trabalhando, o que é que eu vou fazer? Eu vou precisar alterar, de alguma forma, esse valor. Eu preciso alterar esse conteúdo.</p>
+
+[04:49] Como que eu faço isso? Eu vou pegar, vou utilizar o sinal ${} e dentro das chaves eu vou escrever livro, no singular. Por quê? Não se trata da minha lista de livros, se trata do livro que eu estou utilizando naquele momento. No nosso caso, na primeira volta que ele fizer, a primeira vez que ele passar nesse loop, vai ser o índice zero.
+
+<p>[05:09] Então eu quero que ele pegue o livro.imagem. Vou voltar na nossa aplicação e repara o que vai acontecer. Temos o "Vue", o "Postgre", o "Sass" e todas as outras informações também. E tem uma parte interessante no nosso código, que ele está mostrando os livros como indisponíveis.</p>
+
+<p>[05:26] Trataremos isso mais para frente. Eu vou remover esse indisponivel vou deixar só assim: img class = "livro__imagens" src=${livro.imagem}". E visualizaremos cada livro de uma forma melhor. Só eu fazendo isso, já estamos vendo diversos livros diferentes. Não são todos os livros o "Cangaceiro JavaScript".</p>
+
+<p>[05:47] Isso ficou incrível, ficou muito legal. Outra coisa muito importante, na API temos o alt dela. O alt das imagens que utilizamos. Tem o alt. Então eu posso fazer a mesma coisa: alt="${livro.alt}" e já temos o alt das imagens corretamente.</p>
+
+<p>[06:05] Podemos até verificar, vou colocar nas imagens para vermos, nos elementos. Deixe-me atualizar, eu vou selecionar essa imagem clicando na seta, selecionando essa imagem, temos o alt: "Capa do livro de front-end com Vue.js", que é esse. Então está maravilha, está correto. Todos os alt estão corretos.</p>
+
+<p>[06:29] O que é que temos? Esse é onde fica o título do livro. Então se é o título do livro ${lviro.titulo}. Descrição, está relacionado ao autor. Então ${} - deixe-me lembrar como está escrito, inspecionar, no console, eu esqueci de fechar, vou chutar - livro.autor, eu não lembro se é livro.autor. É livro.autor, então: o Caio, o Vinícius, o Nathan e assim por diante, maravilha.</p>
+
+<p>[07:05] O preço? Temos ${livro.preço}. E para finalizar, temos a nossa classe de tags. Qual a tag que estamos utilizando? No nosso projeto, na API, ela está escrita como categoria. Então vamos colocar ${livro.categoria}. Vamos testar isso? Olha que incrível que ficou.</p>
+
+<p>[07:35] Então já fizemos a requisição e utilizamos o forEach para criar cada um desses elementos de livro. Ele criou o livro de "Vue", o livro de "Postgre", o livro de "Saas", de "HTML e CSS" e todos os livros assim por diante. Então aprendemos como fizemos a requisição e como usamos o forEach para criar cada um desses elementos na tela.</p>
+
