@@ -145,7 +145,7 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[04:30] Então vamos começar a alterar essas informações. Primeiro temos src da imagem do livro. Como que chama no nosso json? Chama imagem. E para eu pegar a imagem do livro específico que eu estou trabalhando, o que é que eu vou fazer? Eu vou precisar alterar, de alguma forma, esse valor. Eu preciso alterar esse conteúdo.</p>
 
-[04:49] Como que eu faço isso? Eu vou pegar, vou utilizar o sinal ${} e dentro das chaves eu vou escrever livro, no singular. Por quê? Não se trata da minha lista de livros, se trata do livro que eu estou utilizando naquele momento. No nosso caso, na primeira volta que ele fizer, a primeira vez que ele passar nesse loop, vai ser o índice zero.
+<p>[04:49] Como que eu faço isso? Eu vou pegar, vou utilizar o sinal ${} e dentro das chaves eu vou escrever livro, no singular. Por quê? Não se trata da minha lista de livros, se trata do livro que eu estou utilizando naquele momento. No nosso caso, na primeira volta que ele fizer, a primeira vez que ele passar nesse loop, vai ser o índice zero.</p>
 
 <p>[05:09] Então eu quero que ele pegue o livro.imagem. Vou voltar na nossa aplicação e repara o que vai acontecer. Temos o "Vue", o "Postgre", o "Sass" e todas as outras informações também. E tem uma parte interessante no nosso código, que ele está mostrando os livros como indisponíveis.</p>
 
@@ -180,3 +180,41 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[01:30] Essa função map é invocada da mesma forma que a função forEach. Só que, a função map, diferente do forEach, ela retorna um valor, geralmente. Se eu colocarmos console.log(array1), por exemplo, teremos os mesmos valores 1, 4, 9, 16 embaixo. Então o map vai alterar os valores para a nova array que utilizaremos, mas ele não altera a array principal. E diferente do forEach, teremos um retorno para essa nossa função.</p>
 
 <p>[02:17] No próximo vídeo, quero começar a botar a mão na massa no nosso projeto, para alterarmos cada um desses valores embaixo.</p>
+
+<h2>03. Desconto com map</h2>
+
+<p>[00:00] Vamos organizar um pouco melhor o nosso código. Reparem que criamos a nossa função main, que faz a busca de livro e já colocamos a função com o forEach embaixo.</p>
+
+<p>[00:15] Vamos a função forEach para ficar mais fácil conseguirmos identificar o nosso código. Eu vou criar um novo arquivo JavaScript dentro de app chamado "metodoForEach.js".</p>
+
+<p>[00:33] E dentro desse metodoForEach, vamos pegar a constante do elemento que buscaremos e a função, da linha 12 até a linha 29. Dar um "Ctrl + X" para recortar e "Ctrl + V" para colar.</p>
+
+<p>[00:48] Dessa forma, você vai ter em cada um dos arquivos, métodos específicos para você conseguir pesquisar depois essas informações. Então temos o metodoForEach, vou criar já um novo arquivo chamado "metodoMap.js". E em "index.html" importaremos esses dois.</p>
+
+<p>[01:10] Temos o nosso arquivo main, teremos um novo script que vai ser o app/metodoForEach.js. Depois vai ter mais um script que vai ser o app/metodoMap.js. E vamos começar a mapear os nossos preços, aplicando um desconto.</p>
+
+<p>[01:36] Como que faremos isso? Na nossa função que exibe os livros, lá no main, exibirOsLivrosNaTela, eu quero colocar uma outra informação. Eu quero aplicar esses descontos e exibir, de fato, os livros na tela já com o desconto. Vamos supor que isso faça muito sentido para o nosso negócio, para o que estamos criando.</p>
+
+<p>[01:56] Vamos criar uma nova variável aqui dentro, eu vou tirar esse console.log também, não precisamos mais dele. No lugar desse console.log, depois que pegamos a resposta com o json, eu vou fazer o seguinte: vou criar uma nova variável que eu vou chamar de livrosComDesconto vai ser = uma função que criaremos agora aplicarDesconto. E passaremos para essa função todos os livros.</p>
+
+<p>[02:33] Depois, exibiremos na tela todos os livros já com os descontos. Essa vai ser a nossa sacada. Vamos criar uma função que criará o desconto em todos os livros em metodoMap. Então function aplicarDesconto(livros).</p>
+
+<p>[02:59] Em seguida, vamos definir o quanto de desconto queremos, eu vou colocar const desconto = 0.3 por exemplo, um valor. E agora passaremos esses livros com o desconto para cá.</p>
+
+<p>[03:17] Então eu vou fazer o seguinte, vou criar a variável, vou usar livrosComDesconto = livros.map e vamos aplicar desconto em cada livro. Então, nossa arrowFunction, {} e vamos mandar ver nessa função. Primeira coisa, a função map vai precisar retornar alguma coisa, então eu vou colocar um return.</p>
+
+<p>[03:50] Queremos pegar todos com todas as informações sem alterar nenhuma delas além do preço. Para isso, podemos usar no return e duas chaves {} para indicar que retornaremos um objeto. Vamos utilizar um operador especial do JavaScript que é ...livro. Quando colocamos as reticências ... e escrevoemos livro, ele vai fazer uma cópia de todo o nosso array, ou do nosso objeto existente, para outro objeto.</p>
+
+<p>[04:27] Então faça uma cópia de tudo o que você tem de livro, mas eu vou precisar alterar o preço dele. Então faça uma cópia com esse spread operator, operator com JavaScript e eu vou alterar o preço dele.</p>
+
+<p>[04:41] Para isso, vamos dizer que o livro.preco vai ser igual a livro.preco * desconto. E conseguiremos ver melhor. Está tudo em uma linha, eu só quebrei para visualizarmos corretamente, vou até tirar o zoom para vocês verem, o meu código está assim.</p>
+
+<p>[05:04] Vou aumentar o zoom para vermos bem. Então pega tudo o que eu tenho de livro, faz uma cópia desse livro. Só que o preço eu vou fazer o livro.preco -.</p>
+
+<p>[05:21] Em sequência, fazemos o return livrosComDesconto. Em nosso método main, pegamos os livros, depois aplicamos o desconto nesses livros e ele vai retornar o objeto.</p>
+
+<p>[05:45] Pega esse objeto e guarda dentro dessa nossa variável de livros com desconto e exibe os livros com desconto na tela. Vamos atualizar e temos embaixo os livros com um desconto bizarro, está com muitos números decimais, precisaremos fixar esses valores.</p>
+
+<p>[06:01] Podemos fazer isso ou no nosso código main, ou lá no nosso método forEach, podemos escolher. Eu posso colocar, por exemplo, no livro.preco um . toFixed(2) só para ele fixar em duas casas decimais, isso já resolveria o problema.</p>
+
+<p>[06:25] Isso já resolveria a parte visual e eu acho que é o menos custoso para nós. Então, para arrumarmos aquela quantidade de valores periódicos da nossa dízima, eu vou fixar na exibição que ele vai estar em duas casas decimais.</p>
