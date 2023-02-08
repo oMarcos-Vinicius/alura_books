@@ -326,3 +326,26 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[07:59] Se eu clico, por exemplo, no botão "Livros disponíveis", na parte superior da tela, ou no botão "Ordenar por preço", no canto superior direito da tela, nada vai acontecer. Não receberemos nenhum erro e nada acontece. Olha, "Livros disponíveis" e "Ordenar por preço", não acontece absolutamente nada.</p>
 
 <p>[08:10] Esses três estão exatamente como a queríamos. Nosso próximo desafio é mostrar esses livros que estão no console, na tela.</p>
+
+<h2>05. Livros filtrados na tela</h2>
+
+<p>[00:00] Quando clicamos em um dos botões, por exemplo, "Livros de dados", aparece no console todos os livros. Mas não é esse o comportamento que eu quero. Eu quero que, os livros que eu clique nesses botões apareçam na tela, ou seja, que os elementos sejam exibidos na tela.</p>
+
+<p>[00:14] Para isso, o que é que faremos? No método forEach, se você navegar até ele, olha que interessante: temos uma função chamada exibirOsLivrosNaTela. Vamos usar essa função e ver o que é que vai acontecer com o nosso código?</p>
+
+<p>[00:26] Então, no lugar de usarmos um console.table na linha oito do nosso método filter, eu colocaremos a função exibirOsLivrosNaTela(livrosFiltrados). Vamos ver o que é que vai acontecer? Eu vou fechar o meu console, para focarmos só no nosso código agora.</p>
+
+<p>[00:42] E eu vou clicar no botão "Livros de dados", na parte superior central da tela. "Livros de dados", cliquei. Parece que não aconteceu nada de diferente, mas quando escrolamos o mouse, olha que interessante: os livros de dados já estavam aparecendo, que são o PostgreSQL e o livro de Python Pandas, Pandas Python, esses dois.</p>
+
+<p>[00:59] E eles aparecem embaixo. Vou fazer o seguinte, vou clicar de novo no botão "Livros de Dados", na parte superior central da tela. Olha que louco, ele está colocando esses elementos, conforme eu vou clicando, embaixo. Então, nós temos todos os elementos, conforme clicamos nos botões para filtrar os novos livros, eles estão aparecendo embaixo.</p>
+
+<p>[01:15] Não é esse comportamento que eu quero. Se eu clicar, por exemplo, no botão "Livros de front-end", na parte superior esquerda da tela, olha o tamanho que vai ficar agora a estrutura. Eu vou clicar agora no botão "Livros de Dados", na parte superior central da tela, ele está repetindo os livros. Não é isso que eu quero.</p>
+
+<p>[01:25] Vamos lá, o que é que podemos fazer? Observando o nosso método forEach, temos esse elementoParaInserirLivros. E o que é que faremos? Assim que ele é clicado, que essa função é executada, ele pega a lista que ele recebeu, a lista de livros, não importa se são livros filtrados, se são livros da requisição da API, ele vai pegar e para cada livro ele vai inserir dentro desse elemento.</p>
+
+<p>[01:46] O que poderíamos fazer é de fato pegar esse elemento, elementoParaInserirLivros, acessar o conteúdo dele .innerHTML e falar que o conteúdo dele vai ser sempre uma string vazia, ele vai ser limpo. Ou seja, sempre que clicarmos, ele vai limpar e vai mostrar apenas os livros que estamos visualizando.</p>
+
+<p>[02:06] Então teremos livros de front-end, aparece só os livros de front-end. Podemos até validar isso com as categorias, olha só, todas as categorias de front-end. Livros de back, agora sim, back-end, back-end e back-end. E livros de dados, aparece aqui embaixo, dados e dados.</p>
+
+<p>[02:22] Dessa forma, o nosso código ficou muito mais interessante e estamos reutilizando códigos que nós já tínhamos feito. Vimos também que podemos cruzar informações entre esses métodos de array, por exemplo, o forEach e o filter também, que utilizamos os dois para realizar o filtro dos botões e isso ficou incrível.</p>
+
