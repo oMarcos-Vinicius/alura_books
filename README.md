@@ -349,3 +349,65 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[02:22] Dessa forma, o nosso código ficou muito mais interessante e estamos reutilizando códigos que nós já tínhamos feito. Vimos também que podemos cruzar informações entre esses métodos de array, por exemplo, o forEach e o filter também, que utilizamos os dois para realizar o filtro dos botões e isso ficou incrível.</p>
 
+<h1>Módulo 04. Sort: ordenando a lista</h1>
+
+<h2>02. Como funciona o sort</h2>
+
+<p>[00:00] O nosso próximo desafio vai ser ordenar os livros por preço. Então, no botão "Ordenar por preço", na área superior direita da tela, eu vou clicar nele e eu quero ordenar esses livros, por preço. Quando eu clico, ele some. Os erros porque estamos chamando aquela função de filtrosLivros, mas não tem nenhuma ordenação ali.</p>
+
+<p>[00:16] O que é que faremos? Vamos pesquisar o método de array responsável por essa tarefa de ordenação. Então eu vou colocar array prototype sort. Sort, em inglês, significa ordenar. Vou clicar aqui, ele está mostrando essa página está em português.</p>
+
+<p>[00:32] Vamos ler essa em português, depois passaremos em inglês, para realizarmos alguns testes. Então vamos lá. O array.prototype.sort(), o método sort ordena os elementos do próprio array e retorna o array, retorna o array ordenado. A ordenação não é necessariamente estável.</p>
+
+<p>[00:46] Quando clicamos nesse estável, vamos para um link do Wikipedia, falando o que é uma ordenação estável. Preserva a ordem dos registros de chaves iguais, então ele dá até um exemplo e fala enquanto a ordenação não estável está sujeita a ter um comportamento diferente.</p>
+
+<p>[01:02] Em outras palavras, não vai ser uma ordenação que esperamos necessariamente, entenderemos o porquê. Ele fala também sobre o tempo de execução, depende da quantidade de memória que utilizaremos para realizar essa operação, também.</p>
+
+<p>[01:18] E aqui tem um ponto muito interessante. Quando passamos uma array e fala para ela ser ordenada, conseguimos passar uma função de comparação para ela. Essa função vai definir exatamente a ordem dos elementos.</p>
+
+<p>[01:30] E por que é que ela não é uma ordenação estável? Olha que interessante: o array é ordenado de acordo com a pontuação de código unicode de cada um dos caracteres, de acordo com a conversão de cada elemento para string.</p>
+
+<p>[01:45] O que é que vai acontecer? Quando chamarmos essa função, ela vai transformar os nossos elementos em string, para depois - com base no código unicode - sim realizar essa ordenação. E tem um ponto interessante, ele até fala: note que o array é ordenado de acordo com a pontuação de código unicode.</p>
+
+<p>[02:03] Então aqui embaixo, se escrolarmos, encontramos alguns exemplos interessantes. Ele tem uma sequência de frutas e ele faz a ordenação. Então tem "cherries", "apples" e "bananas". E ele fala para ordenar, aparece "apples", "bananas" e "cherries".</p>
+
+<p>[02:15] Depois - esse é o ponto chave - var scores = [1, 10, 2, 21]. Se fôssemos ordenar isso, sem olhar o código, seria 1, 2, 10 e 21. Só que, quando ele pede para ordenar, olha o resultado que é: 1; não é o 2, é o 10; 2 e 21. Observe que o 10 vem antes do 2, porque o 10 vem antes do 2 em pontuação de código unicode.</p>
+
+<p>[02:40] Certo, então teremos um super desafio. Por quê? No nosso código - eu vou voltar em todos, atualizando a página - percebe que temos vários valores? Como que ordenaremos esses valores, de forma que faça sentido, para os elementos virem ordenados de uma maneira estável?</p>
+
+<p>[02:59] Precisaremos passar uma função de comparação para ela. Então eu quero realizar um teste com vocês. Alterei, cliquei na língua e selecionei inglês americano e tem alguns exemplos que podemos rodar. Então vamos lá.</p>
+
+<p>[03:13] Ele ordenou alguns meses, ordenou alguns valores também. Lembra aqui 1 e apareceu - deixe-me ver que número é esse, 1, 2, 3, 1, 2, 3 - 100 mil, 21, 30, 4. Não faz muito sentido, não é isso que queremos.</p>
+
+<p>[03:28] Vamos fazer então uma ordenação para nós, assim, um exemplo prático desse daqui. Então vamos pensar. Se a ordenação vai precisar de uma função de comparação para colocar exatamente os itens em uma ordenação estável, precisaremos realizar um teste. E o que é que eu quero fazer? Vamos realizar o seguinte teste.</p>
+
+<p>[03:47] Então, eu vou ter uma variável chamada precos, eu vou passar alguns valores, então vai ser [29.98,1,101,110]. Eu vou pedir para serem ordenados esses valores, então eu vou criar uma nova variável, que eu vou chamar de precosOrdenados = precos.sort() para executarmos essa nossa função.</p>
+
+<p>[04:26] Eu quero visualizar os dois, eu quero visualizar, eu quero um console.log(precos) e um console.log(precosOrdenados). Vamos rodar esse código, para vermos o que é que aconteceu. Rodamos e temos os preços e os preços ordenados, não está fazendo muito sentido.</p>
+
+<p>[04:50] Estamos, deixe-me tirar, deixe-me deixar só o precoOrdenado, acho que vai ficar mais fácil, conseguimos visualizar ali em cima. Então vou voltar, vou rodar mais uma vez, olha o preço ordenado: [1, 101, 11, 110, 29.98], não está fazendo sentido nenhum isso.</p>
+
+<p>[05:03] De alguma forma pediremos para ordenar nos valores que esperamos. O que é que esperamos dessa ordenação? Vou colocar aqui, esperamos que seja o 1 o primeiro elemento; depois esperamos que seja o valor 11; depois o valor 29.98; depois o valor 101 e depois o valor 110. É isso que esperamos.</p>
+
+<p>[05:29] Como é que faremos isso? Passaremos uma função de comparação. Então function() {} e escreveremos a nossa função. Nessa função, passaremos dois valores: o valor de a e b. O que é que vai ser o valor de a e b? Vai ser o primeiro elemento e o segundo elemento. E ele vai fazer essa comparação.</p>
+
+<p>[05:49] O que eu quero que ele faça? Eu quero que ele retorne na ordem estável, então eu vou colocar um return e vou falar que ele vai ser na ordem estável do menor para o maior a - b. E vou rodar isso mais uma vez, para visualizarmos se está tudo certo. Deixe-me ver se o código está certo.</p>
+
+<p>[06:06] Parece que está certo, se não estiver certo ele vai nos alertar, então ele voltou: [1, 11, 29.98, 101, 110]. É exatamente o que precisamos. Gui, eu preciso de uma ordenação ao contrário, eu preciso do menor para o maior.</p>
+
+<p>[06:24] E só inverter: eu vou fazer b - a. Vou ordenar, vou pedir para executar mais uma vez e temos uma ordenação contrária: 110, 101, 29.98, 11, 1]. E aqui tem um ponto interessante, que eu quero mostrar para vocês também, que é uma curiosidade.</p>
+
+<p>[06:41] Sempre que ordenarmos e tiver algum elemento que é undefined, ele vai ser classificado no final da nossa matriz. Então eu vou colocar, no lugar do 1, eu vou colocar undefined. Undefined, escrevi certo.</p>
+
+<p>[06:53] Então eu vou rodar isso, repare o que aconteceu: o 1 estava lá no meio. Se temos um elemento que é undefined, ele vai lá para o final da nossa matriz. Qual que é a sacada então, Gui? Sempre que pensarmos na ordenação e precisarmos de uma ordenação estável, nós vamos precisar de uma função.</p>
+
+<p>[07:08] Puxa, mas eu tenho que escrever dessa forma? Não, podemos usar uma arrow function também. Então eu vou tirar isso, eu vou passar dessa forma para ele. Olha, se eu rodar esse código, a teremos o mesmo resultado. E podemos deixar até sem o return, porque estamos fazendo uma ação, apenas.</p>
+
+<p>[07:22] Então eu vou tirar essas chaves e deixar o nosso código assim. Se eu rodar, também teremos o mesmo resultado. Então lembra: o sort vai classificar os elementos do array e retornar um array ordenado. Quando chamarmos esse sort com elementos que sejam undefined, esse undefined vai sempre para o final da nossa lista e eles são ordenados com base no unicode.</p>
+
+<p>[07:44] Então tem que lembrar, ele transformou tudo para string, a ordenação dele não vai ser estável. Puxa, eu preciso de uma ordenação que seja estável, aí criamos uma função para fazer essa ordenação de comparação.</p>
+
+<p>[07:56] Lembrando, eu preciso do menor para o maior: a - b. Então eu vou ordenar, ele vai mostrar 11, 29.98, 101, 110 e "undefined" lá no final. Eu preciso do maior para o menor, então eu coloco b - a e aí sim temos o resultado certo.</p>
+
+<p>[08:12] Nosso próximo desafio é clicar nesse botão de ordenar e aplicar todo esse conhecimento do sort no nosso projeto.</p>
+
