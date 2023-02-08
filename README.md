@@ -411,3 +411,34 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[08:12] Nosso próximo desafio é clicar nesse botão de ordenar e aplicar todo esse conhecimento do sort no nosso projeto.</p>
 
+<h2>03. sort de livros</h2>
+
+<p>[00:00] Vamos implementar essa ordenação por preço no nosso projeto? Primeira coisa que eu vou fazer vai ser acessar a pasta de app e criar um novo arquivo js, que eu vou chamar de metodoSort.js.</p>
+
+<p>[00:15] Vou no index.html, nos scripts e vou falar: esse script também faz parte dessa nossa página < script src="app/metodosSort.js"></ script>. No nosso metodoSort, o que é que eu vou fazer?</p>
+
+<p>[00:28] Se observamos o nosso index, temos um id desse botão. Podemos pegar o id desse botão, do btnOrdenarPorPreco, ele até tem uma classe btn btn-ordenacao, mas eu vou pegar esse id dele.</p>
+
+<p>[00:45] Eu vou criar uma variável que eu vou chamar de let btnOrdenarPorPreco = document.getElementById('btnOrdenarPorPreco). Vou adicionar nesse btnOrdenarPorPreco um evento de clique: btnOrdenarPorPreco.addEventListener('click', ordenarLivrosPorPreco) e vou criar essa função agora.</p>
+
+<p>[01:32] function ordenarLIvrosPorPreco não temos parâmetros. Primeira coisa, pegaremos esses livros de algum lugar. Graças ao nosso método main, temos uma variável de livros disponível, que podemos usar.</p>
+
+<p>[01:49] Eu vou chamá-la: livros.sort(). Eu vou ordenar e essa ordenação vai me devolver alguma coisa. Essa alguma coisa eu preciso armazenar em algum lugar. Então vou criar uma nova variável, que eu vou chamar de let livrosOrdenados = livros.sort().</p>
+
+<p>[02:07] Só eu fazendo isso, será que já vou conseguir exibir na tela os livros com o preço correto? Não. Mas eu quero mostrar isso para vocês acontecendo. Olha só, no nosso método forEach, temos uma função chamada exibirOsLivrosNaTela.</p>
+
+<p>[02:25] Vamos chamar essa função exibirOsLivrosNaTela(livrosOrdenados). Vamos ver o que é que vai ser exibido apenas com esse livros.sort, para vermos o que acontece?</p>
+
+<p>[02:37] Eu estou na tela, atualizei a página, nem precisava atualizar, porque os livros já estavam aparecendo. Vou deixar o inspecionar para ficarmos de olho se receberemos alguma mensagem de erro ou alguma notificação.</p>
+
+<p>[02:45] Vou colocar "Ordenar por preço" e ele mudou, ele piscou, aconteceu alguma coisa, só que os livros não estão ordenados. Repara que tem um 9,90 embaixo, não é o que precisamos.</p>
+
+<p>[02:56] Lembrando: eu preciso de uma ordenação de valores que não seja no sentido alfabético, usando unicode, vou precisar passar uma função. Essa função eu posso passar da seguinte forma: vou falar que eu tenho o valor "a" e o valor "b", dos livros e eu quero comparar, quero fazer alguma coisa com esses valores.</p>
+
+<p>[03:15] Então eu vou ter o livro "a" vai ter um preco e eu quero ordenar pelo maior preço para o maior, então vai ser "a" menos o valor do livro "b", e ele vai fazer essa comparação para todos livros.sort((a,b) => a.preco - b.preco).</p>
+
+<p>[03:26] Voltando no nosso código, vou fechar o console para visualizarmos melhor. Vou clicar, repara os valores que temos: 20, 62, 55. Pedi para ordenar por preço, agora sim: 9,90, 11,90, 19, 29, 29, 49, 79, 89, 94, 139. Maravilha.</p>
+
+<p>[03:45] Putz, quero ordenar no sentido oposto, então eu só inverto: livros.sort((a,b) => b.preco - a.preco). Quando eu volto no nosso código, eu peço para ordenar, ele vai mostrar o livro caro. Pessoal, isso é só fictício, esses valores não são os valores reais dos livros, tanto que se você quiser entrar na casa do código, lá estarão os valores corretos.</p>
+
+<p>[04:02] Isso é meramente ilustrativo. Então vou voltar, quero ordenar por preço do menor para o maior livros.sort((a,b) => a.preco - b.preco) e exibir todos os livros na tela. Maravilha, isso ficou muito bacana.</p>
