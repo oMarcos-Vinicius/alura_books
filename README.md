@@ -559,3 +559,40 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[04:59] Então a sacada, o que eu quero que você guarde no seu coração, é o seguinte: sempre usaremos a função de redução para combinar dois valores e produzir um único valor. E na sequência faremos isso aplicando esse conceito no nosso projeto.</p>
 
+<h2>04. Valor total com reduce</h2>
+
+<p>[00:00] Vamos implementar então o método reduce para somar o valor de todos os livros quando esse botão de "Livros disponíveis" for clicado e mostrarmos esse resultado do valor total nessa seção?</p>
+
+<p>[00:12] A primeira coisa que eu vou fazer vai ser, lá na pasta de app, criar um novo arquivo chamado metodoReduce.js. No index.html, vamos colocar esse script no nosso documento app/metodoReduce.js.</p>
+
+<p>[00:32] O que eu vou fazer agora vai ser abrir o nosso método filter. Nós fazemos o filtro de livros disponíveis, se essa categoria for disponível, e ele exibe os livros na tela.</p>
+
+<p>[00:42] Essa está feita. Quando clicamos no botão "Livros disponíveis", localizado na parte superior da tela e exibiu os livros disponíveis na tela, o que é que queremos fazer? Queremos calcular antes de colocar essa seção na nossa página.</p>
+
+<p>[00:53] Essa seção é colocada aqui exibirValorTotalDosLivrosDisponveisNaTela(). Então o que é que eu quero fazer? Eu quero criar uma constante chamada de valorTotal e ela vai ser igual ao resultado de uma função, o retorno de uma função, que eu vou chamar de calcularValorTotalDeLivrosDisponiveis().</p>
+
+<p>[01:16] E para eu conseguir calcular os livros disponíveis, eu vou passar a minha base de livros filtrados. Então essa função calcularValorTotalDeLivrosDisponiveis(livrosFiltrados) eu vou utilizar o método reduce.</p>
+
+<p>[01:29] Então eu vou chamar a function, vou passar os valores calcularValorTotalDeLivrosDisponíveis(livros) para cá, que vai calcular o valor e aqui eu vou chamar só de livros, para ficar mais fácil o nosso entendimento.</p>
+
+<p>[01:39] Essa nossa função vai ter um retorno. Então vamos lá. Qual que vai ser o retorno dela? Eu quero que pegue todos os livros e aplique a função de reduce. Para aplicar essa função de reduce, teremos um acumulador e vai ter o livro.</p>
+
+<p>[01:53] Então queremos fazer alguma coisa. Eu quero que o acumulador some com o valor do livro, só que não o valor do objeto e sim o valor que eu tenho em preço.</p>
+
+<p>[02:04] Some o valor que eu tenho em preço, vou colocar uma , aqui e o meu primeiro índice eu quero que seja um índice 0, que comece com o valor 0. E ele vai começar a fazer essa redução.</p>
+
+<p>[02:15] Lá no nosso método filter, o que é que eu quero fazer? Antes de passarmos esse valor total para outra função, eu quero visualizar ele na tela para ver se ele está certo.</p>
+
+<p>[02:23] Eu vou colocar console.log(valorTotal) só para visualizarmos. Voltando ao nosso código, vou abrir o "Inspecionar elemento", venho no "console" e vou clicar no botão "Livros disponíveis", localizado na parte superior da tela.</p>
+
+<p>[02:34] Cliquei e ele mostrou 714.2 e está certo. Se somarmos, vai dar esse valor mesmo. O que eu vou fazer, só para deixá-lo um pouco melhor? Eu vou colocar um .toFixed(2) para colocar duas casas decimais nesse valor.</p>
+
+<p>[02:50] Então olha só, livros disponíveis: 714.20, maravilha, já temos esse valor. Realizamos a função reduce, temos o valorTotal, vou tirar esse console.log, não precisamos mais dele, é só para testarmos mesmo.</p>
+
+<p>[03:05] Eu coloquei um caractere errado. Agora sim. O que eu quero fazer agora é pegar esse valorTotal e passar ele para a nossa função exibirValorTotalDosLivrosDisponveisNaTela(valorTotal). Então passei para ela, botei o valorTotal e, no lugar do 199,00 eu vou passar quem? Com o sinal de ${}, eu vou passar o valor total.</p>
+
+<p>[03:24] Olha só que interessante: carregando os livros, os livros de dados, não aparece nada. Livros de back também não aparece nada. Se eu clico no botão "Livros disponíveis", localizado na parte superior da tela, aí sim vem o valor total dos livros.</p>
+
+<p>[03:37] Gui, se mudar os valores da API, por exemplo, esse livro agora custa 139, agora custa 9,90? Ele vai alterar sozinho esse valor total.</p>
+
+<p>[03:46] Essa é uma ideia, se eu quero comprar todos os livros que estão disponíveis, esse é o valor do investimento que eu faria. E assim concluímos essa parte do reduce com o JavaScript`.</p>
