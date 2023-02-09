@@ -462,3 +462,50 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[02:00] Vou dar um zoom para vermos bem. Então, o que é que fizemos? Essa nossa variável de livrosFiltrados vai ser baseada em uma condição. A categoria é disponível? É. Se for disponível, então pega a quantidade maior que zero.</p>
 
 <p>[02:13] A categoria não é disponível, é dado, front, não importa, faz o filtro com base nessa categoria, então. Isso ficou bem legal.</p>
+
+<h2>02. Manipulando HTML com JS</h2>
+
+<p>[00:00] Nós temos um desafio muito interessante agora. Se a gente formos até embaixo da nossa página, notem como em todos os filtros que fazemos, temos esse elemento "todos os livros disponíveis por R$ 299,00".</p>
+
+<p>[00:13] Então não importa a categoria que eu vou, sempre temos essa seção. Vamos olhar no nosso código onde que essa seção está? A seção no arquivo index.html, antes do footer, temos essa seção de valor_total_livros_disponiveis, tem a classe livros__disponiveis e tem a informação com o valor 299.</p>
+
+<p>[00:34] Se eu alterar, por exemplo, para 199 ele vai alterar ali para 199 em todas as páginas. E qual que é o nosso desafio? Selecionaremos livros disponíveis e exibiremos essa informação aqui, vai mostrar essa seção disponível.</p>
+
+<p>[00:49] Quando clicarmos em "Livros de front-end", "Livros de back", "Livros de dados" ou "Ordenação por preço", não exibiremos isso, manipularemos isso com JavaScript.</p>
+
+<p>[00:59] Primeira coisa que faremos vai ser acessar o nosso arquivo main. Repara que temos aqui, buscamos o endpoint e depois, no forEach, temos o elemento da função que exibe, de fato, os livros na tela.</p>
+
+<p>[01:14] O que é que faremos? Vamos pegar esse elemento, selecionar esse elemento dessa seção valor_total_livros_disponiveis, com esse id. Então vou chamar const, vou chamar aqui em cima, const elementoComValorTotalDeLivrosDisponveis = document.getElementById('valor_total_livros_disponiveis').</p>
+
+<p>[01:50] O que é que faremos? Primeira coisa, limparemos esse elemento. Não queremos, sempre que o livro for exibido na tela, queremos acessar o conteúdo desse elemento e não exibir nada. Manipularemos isso lá quando for com os nossos livros do JavaScript.</p>
+
+<p>[02:06] Não está aparecendo. Nem quando clicamos em "Livros disponíveis". O que é que faremos? Vamos no nosso metodoFilter e faremos o seguinte: temos a categoria. Podemos perguntar se a categoria desse livro for disponível, aí sim queremos mostrar aqueles livros.</p>
+
+<p>[02:27] Eu posso fazer um filtro, exibe os livros na tela, desenha aqui, não importa em qual categoria e qual botão eu clique, ele vai colocar os livros. Depois, eu vou fazer uma pergunta, vou fazer assim: if (categoria == 'disponivel') o que eu quero fazer é exibir os livros, exibir essa seção na tela.</p>
+
+<p>[02:54] Então vou criar uma função, que vou chamar de exibirValorTotalDosLivrosDisponiveisNaTela() e vou criar essa função agora, junto com vocês.</p>
+
+<p>[03:09] function exibirValorTotalDosLivrosDisponiveisNaTela() e essa função vai fazer o que? Pegaremos aquele elemento que trouxemos, o elementoComValorTotalDeLivrosDisponiveis, vou colocar ele aqui e vou acessar o conteúdo desse elemento, .innerHTML = e eu vou fazer o seguinte, eu vou no nosso código HTML e vou copiar essa div aqui dentro dessa seção.</p>
+
+<p>[03:35] "Ctrl + c" , volto no nosso metodoFilter e "Ctrl + v". Vamos ver se isso já resolveu o nosso problema. Vou atualizar a página. "Livros de front-end": não aparece nada. Na página principal, também não aparece. "Livros de back": não aparece. "Livros de dados": também não. "Ordenação por preço": também não.</p>
+
+<p>[03:55] Quando clicamos em "Livros disponíveis" aí sim ele aparece. Está aparecendo, porém ele está aparecendo com um valor fixo, não está somando de fato o valor desses livros disponíveis que temos na nossa API.</p>
+
+<p>[04:08] Então precisamos de alguma forma reduzir os valores, somar todos os valores dos livros disponíveis e manipular esse valor aqui dentro. Isso faremos na sequência. Antes de fazermos isso, vamos deixar o nosso código ainda mais limpo?</p>
+
+<p>[04:23] Quando fazemos essa verificação na linha sete, dos livros disponíveis, fazemos assim: se a categoria for igual a disponível, faz o filtro pela quantidade. Então o que é que eu posso fazer? Vou selecionar tudo isso e ele vai dar uma opção para nós.</p>
+
+<p>[04:39] Dar um "Option + z", "Ctrl + z" só para ele ver. Repara que tem uma lâmpada amarela do lado, eu vou clicar nela e vou colocar assim, selecionar essa opção: extrair para uma função global, de escopo global. E vou dar um nome, vou escrever assim: filtrarPorDisponibilidade, uma coisa assim.</p>
+
+<p>[05:02] O que é que aconteceu? Ele tirou todo aquele código que estava aqui e passou para baixo, uma função que é filtrar por disponibilidade, que tem exatamente o filtro. E o outro, filtraremos por quê? Filtraremos por categoria.</p>
+
+<p>[05:14] Então eu vou selecionar, voltando, selecionar todo esse livro, clico na lâmpada, extrair para uma função de escopo global e eu vou chamar de filtrarPorCategoria. Dar um "Enter" e olha que interessante, ele já extraiu para filtrar por categoria passando.</p>
+
+<p>[05:32] Se voltarmos no nosso código, atualizar a página, repara que tudo está funcionando. "Livros de front"; "Livros de back"; "Livros de dados"; "Livros disponíveis" aparece lá embaixo; "Ordenação por preço" não aparece ali e está tudo uma maravilha agora.</p>
+
+<p>[05:45] Gui, mas qual que é a vantagem de termos o nosso código assim? Repara que a leitura do entendimento do nosso código, a legibilidade, está muito melhor. livrosFiltrados = categoria. Se a categoria for disponível, exibe, faz o filtro por disponibilidade.</p>
+
+<p>[06:01] Se não, faz o filtro por categoria, passando a categoria que você já tem como parâmetro. Fechou. Acho que essa parte de filtro ficou incrível, está legal. Clicando nos livros disponíveis, ele exibe aquela seção do valor total, só que precisaremos, de alguma forma, somar de verdade os valores dos livros que temos.</p>
+
+<p>[06:22] E para isso, usaremos um método especial de array também.</p>
+
