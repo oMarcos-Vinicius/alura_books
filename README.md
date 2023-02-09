@@ -463,6 +463,8 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 
 <p>[02:13] A categoria não é disponível, é dado, front, não importa, faz o filtro com base nessa categoria, então. Isso ficou bem legal.</p>
 
+<h1>Módulo 05. Reduce: um único valor</h1>
+
 <h2>02. Manipulando HTML com JS</h2>
 
 <p>[00:00] Nós temos um desafio muito interessante agora. Se a gente formos até embaixo da nossa página, notem como em todos os filtros que fazemos, temos esse elemento "todos os livros disponíveis por R$ 299,00".</p>
@@ -508,4 +510,52 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[06:01] Se não, faz o filtro por categoria, passando a categoria que você já tem como parâmetro. Fechou. Acho que essa parte de filtro ficou incrível, está legal. Clicando nos livros disponíveis, ele exibe aquela seção do valor total, só que precisaremos, de alguma forma, somar de verdade os valores dos livros que temos.</p>
 
 <p>[06:22] E para isso, usaremos um método especial de array também.</p>
+
+<h2>03. Como funciona o reduce</h2>
+
+<p>[00:00] O nosso próximo desafio é cliquei no botão "Livros disponíveis", localizado na parte superior da tela, soma todos esses valores dos livros que estão disponíveis e exibe dinamicamente em baixo.</p>
+
+<p>[00:09] Para isso, utilizaremos um método especial, chamado reduce e eu quero abrir a documentação dele junto com vocês. Então eu vou pesquisar no Google array prototype reduce.</p>
+
+<p>[00:24] Clicando nesse primeiro link, do Mozilla, ele fala: o método reduce executa uma função reduce fornecida por você para cada elemento do array, resultando em um único valor de retorno.</p>
+
+<p>[00:36] E ele tem um exemplo de como essa função reduce acontece, funciona. Eu convido você a ler o resto da documentação para você entender melhor os outros detalhes, mas eu queria botar a mão na massa mesmo, para começarmos a entender como que essa função funciona.</p>
+
+<p>[00:53] E para isso, eu quero fazer um pequeno questionamento: se ela vai reduzir tudo em um único valor, qual seria a diferença da função map ou da função filter, por exemplo?</p>
+
+<p>[01:05] E tem uma imagem, que eu gosto muito, que dá para entendermos bem o que cada um desses métodos fazem. Então sempre que pensarmos no map, ele vai criar um novo array, transformando cada elemento em um array individual. Ele vai criar uma nova lista, um novo array.</p>
+
+<p>[01:22] Então temos uma maçã, uma laranja e uma banana, ele vai criar um novo array com esses elementos, ele vai transformar esses elementos.</p>
+
+<p>[01:29] O filter vai fazer justamente o que? O filter vai remover tudo o que não faz parte daquele filtro que fizemos e vai retornar apenas aquele filtro que estamos, de fato, aplicando nele.</p>
+
+<p>[01:42] E o reduce vai fazer justamente o oposto. Ele vai pegar todos os elementos do array e produzir um único valor, a exemplo do que temos aqui. Esse exemplo é muito legal.</p>
+
+<p>[01:51] Na internet, se você pesquisar, por exemplo, como map filter reduce image, vai aparecer um monte de imagem, tem até aprendizado com meme. Vou abrir esse só para darmos uma olhada. Claro que isso é meramente ilustrativo, mas só para conseguirmos entender.</p>
+
+<p>[02:06] Olha que interessante: nesse exemplo, ele está mostrando map, filter and reduce com emoji, a explicação com emoji. Então temos alguns itens, quando eu coloco para cozinhar ele me devolve esses valores.</p>
+
+<p>[02:16] Quando eu tenho um filtro, o que é que ele vai fazer? Ele vai me retornar apenas conteúdos que são pertencentes a quem é vegano. E não importa se você come hambúrguer, batata, pipoca ou frango, quando você comer ele vai reproduzir um único valor. Nesse caso, o valor é um cocô.</p>
+
+<p>[02:37] Isso é meramente ilustrativo, para vermos, tem várias outras imagens na internet também. Vamos botar a mão na massa e escrever um código para entendermos como que essa função reduce funciona na prática?</p>
+
+<p>[02:47] Então voltando para o nosso cenário, eu vou criar uma variável chamada precos. Dentro de precos, eu vou passar três valores: 10, 20 e 70, por exemplo. E vou criar uma outra variável, chamada precoTotal, que vai ser igual a esse meu valor de precos.reduce e entre parênteses eu vou começar a minha função.</p>
+
+<p>[03:12] Essa função vai receber, geralmente, um parâmetro que vai ser o responsável por acumular todos os valores. Se escrolarmos temos o primeiro parâmetro da função reduce que é o acc, o acumulador.</p>
+
+<p>[03:23] Eu vou chamar com esse mesmo nome , acc. O segundo valor é o item de cada elemento, o valor atual de cada elemento. Então vamos lá, eu vou passar o valor atual, vou chamar de atual.</p>
+
+<p>[03:37] E como essa função vai funcionar? Vou criar uma => e vou fazer o seguinte: eu quero somar todos esses valores que eu tenho dentro de precos e reduzir essa minha lista em apenas um único valor.</p>
+
+<p>[03:48] Para isso eu vou fazer o seguinte: eu vou pegar o acc + atual e ele vai devolver esse valor reduzido para mim. Vou colocar um console.log só para vermos esse precoTotal. Vamos rodar esse código?</p>
+
+<p>[04:10] Rodando e nos mostrou 100. Puxa Gui, legal. Eu só consigo sempre somar então? Eu uso a função reduce sempre para somar? Não, eu posso usar também para fazer uma verificação para, por exemplo, pegar qual é o maior valor dessa lista. Eu quero reduzir, pegar toda a minha lista e pegar, por exemplo, o maior valor.</p>
+
+<p>[04:26] Eu posso fazer assim: se o reduce for maior que o atual eu vou perguntar, eu quero devolver, se o acumulador foi maior que o atual, eu quero devolver o acumulador. Senão, eu quero devolver o atual.</p>
+
+<p>[04:37] Olha que interessante, quando eu mandar rodar ele devolveu o maior valor. Puxa e se eu quisesse o menor valor? Eu posso colocar o sinal de < e ele vai ficar fazendo essa comparação do valor que eu estou no acumulador em relação a cada item do meu array.</p>
+
+<p>[04:51] Legal. Eu estou mostrando esses exemplos com preço porque eles fazem sentido para o projeto que utilizaremos. Podemos usar o reduce também para outros elementos.</p>
+
+<p>[04:59] Então a sacada, o que eu quero que você guarde no seu coração, é o seguinte: sempre usaremos a função de redução para combinar dois valores e produzir um único valor. E na sequência faremos isso aplicando esse conceito no nosso projeto.</p>
 
