@@ -442,3 +442,23 @@ Aprendendo métodos de array e requisições no JavaScript | Alura
 <p>[03:45] Putz, quero ordenar no sentido oposto, então eu só inverto: livros.sort((a,b) => b.preco - a.preco). Quando eu volto no nosso código, eu peço para ordenar, ele vai mostrar o livro caro. Pessoal, isso é só fictício, esses valores não são os valores reais dos livros, tanto que se você quiser entrar na casa do código, lá estarão os valores corretos.</p>
 
 <p>[04:02] Isso é meramente ilustrativo. Então vou voltar, quero ordenar por preço do menor para o maior livros.sort((a,b) => a.preco - b.preco) e exibir todos os livros na tela. Maravilha, isso ficou muito bacana.</p>
+
+<h2>05. Filtrando livros disponíveis</h2>
+
+<p>[00:00] Em nosso projeto, os botões de "Livros de front-end", "Livros de back-end", "Dados" e "Ordenar por preço" estão funcionando. Porém, o "Livros disponíveis" ainda não. Vamos fazer essa implementação?</p>
+
+<p>[00:10] Primeira coisa, temos um método para filtrar os nossos livros. Dentro desse método, o que é que fazemos? Verificamos, pegamos as configurações do botão e pegamos o valor que esse botão tem. Então vamos ver qual é o valor que temos no index.html, do botão, para fazer o filtro.</p>
+
+<p>[00:26] Temos o valor de livros disponíveis, btnLivrosDisponiveis, o valor é disponível. O que é que poderíamos fazer? Poderíamos falar: nessa nossa variável que vai pegar os livros filtrados, poderíamos falar se, por exemplo, categoria == 'disponível', por exemplo, o que é que queremos fazer?</p>
+
+<p>[00:50] Queremos fazer um filtro de apenas os livros que tenham a quantidade maior do que zero. Senão, queremos fazer o filtro normal da categoria. Vamos fazer essa implementação? Eu vou colocar assim, deixe-me dar um "Ctrl + Esc" para visualizarmos bem.</p>
+
+<p>[01:04] Se a categoria for == 'disponivel' ? eu quero pegar o livro da nossa lista de livros e fazer um .filter deles. Para cada livro, o que é que eu quero? Eu quero que ele tenha, o livro.quantidade > 0.</p>
+
+<p>[01:26] Se a categoria for disponível, o que eu vou fazer? Eu vou pegar o livro e vou fazer um filtro com base na quantidade maior do que zero. Senão, eu vou fazer um filtro com base na categoria que já tínhamos. Vamos testar isso?</p>
+
+<p>[01:41] "Livros de front-end": beleza. "Livros de back-end": beleza. "Livros de dados": beleza. Ordenação por preço: beleza. E "Livros disponíveis": agora sim, só os livros disponíveis. Repara que bacana, utilizamos o operador para fazer essa verificação, para saber qual tipo de filtro que utilizaremos.</p>
+
+<p>[02:00] Vou dar um zoom para vermos bem. Então, o que é que fizemos? Essa nossa variável de livrosFiltrados vai ser baseada em uma condição. A categoria é disponível? É. Se for disponível, então pega a quantidade maior que zero.</p>
+
+<p>[02:13] A categoria não é disponível, é dado, front, não importa, faz o filtro com base nessa categoria, então. Isso ficou bem legal.</p>

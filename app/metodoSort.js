@@ -1,16 +1,16 @@
 const btnOrdenarPorPrecos = document.getElementById('btnOrdenarPorPreco');
-let contatorDoPrecoOrdenado = 0;
+let crescenteOuDecrescente = 0; // Par é decrescente e impar é crescente
 
 btnOrdenarPorPrecos.addEventListener('click', ordenarLivrosPorPreco);
 
 function ordenarLivrosPorPreco() {
     let livrosOrdenados = livros.sort((a, b) => {
-        if (contatorDoPrecoOrdenado % 2 == 0) {
+        if (crescenteOuDecrescente % 2 == 0) {
             return a.preco - b.preco
         } else {
             return b.preco - a.preco
         }
     });
-    contatorDoPrecoOrdenado++;
+    crescenteOuDecrescente++;
     exibirOsLivrosNaTela(livrosOrdenados);
 }
